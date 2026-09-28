@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-heading: 'Oswald', ui-sans-serif, system-ui, sans-serif;
+
+    --color-dark: #1a1d21;
+    --color-dark-soft: #23262b;
+    --color-dark-card: #2b2e34;
+    --color-primary: #e6740f;
+    --color-primary-dark: #c05f0b;
+    --color-primary-light: #f3a355;
+    --color-light: #f4f5f7;
+    --color-muted: #8a8d93;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-sans);
+        color: var(--color-dark);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+    }
+}
+
+@layer components {
+    .container-agma {
+        @apply mx-auto w-full max-w-[1240px] px-6;
+    }
+
+    .eyebrow {
+        @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-primary uppercase;
+    }
+
+    .eyebrow::before {
+        content: '';
+        @apply block h-2 w-2 rotate-45 bg-primary;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 font-heading text-sm font-semibold uppercase tracking-wider text-white transition-colors duration-200 hover:bg-primary-dark;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 border border-white/30 px-7 py-3.5 font-heading text-sm font-semibold uppercase tracking-wider text-white transition-colors duration-200 hover:border-primary hover:bg-primary;
+    }
+
+    .section-heading {
+        @apply font-heading text-3xl font-bold uppercase leading-tight text-dark sm:text-4xl;
+    }
+
+    .dot-nav {
+        @apply flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition-colors duration-200 hover:border-primary hover:bg-primary;
+    }
+
+    .diagonal-clip {
+        clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .diagonal-clip-rev {
+        clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+    }
+}
